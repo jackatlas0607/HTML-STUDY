@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>iframe</title>
+</head>
+<body>
+
+    <!-- 首先我們要了解嵌入 iframe 的原則是什麼，我們可以隨便嵌入別人網頁嗎？
+        當然是不行的啦！為什麼我們辛辛苦苦做的網站要被當作是別人的功能呈現給大家看呢？
+        於是在 header 上我們就可以設定 X-Frame-Options 決定是要完全拒絕被使用或是可以讓相同 domain 的網站來使用。
+     
+    以 Google 為例，打開網頁檢視工具，可以看到 Google 搜尋引擎的網頁 header 設定如下：
+    
+    X-Frame-Options: SAMEORIGIN
+    
+    這樣就表示，Google 搜尋引擎可以被同為 google.com domain (同源)的網站嵌入。
+    -->
+
+    <!-- 
+        iframe 內聯框架
+        src: 地址
+        w-h 寬度高度
+     -->
+
+    <!-- <iframe src="https://www.bilibili.com/" name="hello" frameborder="0" width="1000px" height="800px"></iframe> -->
+
+
+    <iframe src="#" name="hello" frameborder="0" width="1000px" height="800px"></iframe>
+    <br>
+
+    <a href="https://www.bilibili.com/" target="hello">跳轉</a>  <!--可以跳到iframe裡-->
+    
+</body>
+</html>

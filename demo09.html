@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>學習表單，登錄註冊</title>
+</head>
+<body>
+    <h1>註冊</h1>
+    
+    <!-- 表單 form
+    
+        action: 表單提交的位置，可以是網站，也可以是一個請求處理地址
+        method: 提交方式 post get
+            get方式提交: 可以在url中看到我們提交的信息，不安全，高效
+            
+            post方式提交: 比較安全，傳輸大文件，部會把信息顯示在url，
+                         但f12->Network->Headers->Form Data看的到 不過可以透過後台加密的方式讓別人看不到
+    -->
+
+    <form action="https://google.com" method="get">
+
+        <!-- 文本輸入框 input type="text"  
+
+            name 給這個input一個名字，若是提交一個請求，則name，要與數據庫對應pojo類屬性名相同 
+            後台java讀取就是讀這個name屬性       
+
+            value 默認初始值   maxlength 最多能寫幾個字  size 這個文本框最多可以輸入幾個字(文本框長度)
+            value="請輸入userame" maxlength="8" size="30"
+
+            readonly 加上這個屬性，就只能讀，不能改也不能寫
+        -->
+        <p>名字:&nbsp;&nbsp; <input type="text" name="username" value="admin" readonly>  </p>
+
+        <!-- 密碼框 input type="password" 
+             
+            hidden 隱藏部會顯示在頁面，但是屬性還在
+        -->
+        <p>密碼:&nbsp;&nbsp; <input type="password" name="pwd" value="123456" hidden> </p>
+
+
+        <!-- 
+            radio 單選框 input type="radio"
+            name屬性一樣代表這幾個radio是同一組，這樣就只能選中一個
+
+            https://www.google.com/?username=abc&pwd=456&sex=boy
+
+            disabled 禁用，不能選
+         -->
+        <p>性別: 
+            <input type="radio" value="boy" name="sex" disabled>男
+            <input type="radio" value="girl" name="sex" checked>女
+        </p>
+
+
+        <!-- 多選框 
+        input type="checkbox"
+        name都是hobby，會提交成一個array
+        https://www.google.com/?username=&pwd=&hobby=code&hobby=chat&hobby=game
+        -->
+        <p>愛好: 
+            <input type="checkbox" value="sleep" name="hobby">睡覺
+            <input type="checkbox" value="code" name="hobby" checked>程式碼 <!-- checked 默認選中-->
+            <input type="checkbox" value="chat" name="hobby">聊天
+            <input type="checkbox" value="game" name="hobby">遊戲
+        </p>
+
+        <!-- 按鈕
+        input type="button"  普通按鈕
+        input type="image"   圖片按鈕
+        input type="submit"  提交按鈕
+        input type="reset"   重置按鈕
+        -->
+        <p>按鈕: 
+            <input type="button" name="btn1" value="按鈕">
+            <input type="image" src="../resource/image/寫輪眼的卡卡西.jpg" width="50px" height="50px">
+        </p>
+
+
+        <!-- 下拉框 
+        https://www.google.com/?username=&pwd=&hometown=Taiwan  name=value
+        -->
+        <p>來自哪裡:
+            <select name="hometown">  <!--name 盡量用英文，中文可能有亂碼-->
+                <option value="Japan">日本</option>
+                <option value="Nederland">荷蘭</option>
+                <option value="Taiwan" selected>台灣</option>  <!-- selected 默認選擇-->
+                <option value="Germany">德國</option>
+            </select>
+        </p>
+
+        <!-- 文本域
+        https://www.google.com/?username=&pwd=&sex=girl&hobby=code&hometown=Taiwan&textarea=Hatake+Kakashi
+        -->
+        <p>反饋: 
+            <textarea name="textarea" cols="30" rows="10">文本內容</textarea>
+        </p>
+
+        <!-- 文件域 
+        input type="file" name="files"
+        -->
+        <p>
+            <input type="file" name="files">
+            <input type="button" name="upload" value="上傳">
+        </p>
+
+        <!-- email驗證 -->
+        <p>email: 
+            <input type="email" name="email" placeholder="請輸入email">
+        </p>
+
+        <!-- URL驗證 -->
+        <p>URL: 
+            <input type="url" name="url" required> <!--required 不能為空-->
+        </p>
+
+        <!-- 數字驗證 -->
+        <p>商品數量: 
+            <input type="number" name="num" max="100" min="0" step="1">
+        </p>
+
+         <!-- 滑塊 -->
+         <p>音量: 
+            <input type="range" name="voice" max="100" min="0" step="2">
+        </p>
+
+        <!-- 搜尋框 -->
+        <p>搜尋: 
+            <input type="search" name="search">
+        </p>
+
+        <!-- 增強鼠標可用性 
+        label for 與 input id對應->這樣的效過就是在頁面點擊label(你點點看)，
+        會切換到<input type="text" id="mark">
+        label標籤可以指向一個位置
+        -->
+        <p>
+            <label for="mark">你點點看</label>
+            <input type="text" id="mark">
+        </p>
+
+        <p>自定義email
+            <input type="text" name="diyemail" pattern="^\w+([-+.]\w+)\*@\w+([-.]\w+)\*\.\w+([-.]\w+)\*$">
+        </p>
+        
+        <p>
+            <input type="submit" value="提交表單">
+            <input type="reset">
+        </p>
+    </form>
+
+
+</body>
+</html>
